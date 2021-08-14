@@ -20,12 +20,12 @@ class ToDoList {
         return listItem.status === false;
      });
     };
-    changeStatus() {
-        return this.todos.map(function(listItem){
-            if (listItem.status === true) {                
-               return listItem.status = false;
+    changeStatus(id, status) {
+        return this.todos.find(function(listItem){
+            if (listItem.id === id) {                
+               listItem.status = status;
             } else {                
-               return listItem.status = true;
+               return listItem;
             };
          });
     };
