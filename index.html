@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>        
+    <meta charset="utf-8">  
+	<link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Playfair+Display&family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="./style.css">
+    <title>HW14-js-oop-classes</title>
+  </head>
+<body>		
+<div>HW14-js-oop-classes</div>
+
+<div>
+  1. Создайте на вашем github репозиторий с именем HW14-js-oop-classes.<br> 
+    Все результаты нужно запушить в ваш репозиторий и прикрепить ссылку на hillel портале.<br>
+  2. Создайте index.html в котором подключите js script.<br>
+  3. Реализуйте дополнительную логику для класса ToDoList<br>
+  3.1 Реализуйте метод changeStatus. Который будет менять статус задачи<br>
+  3.2 Реализуйте метод поиска findTasks. Нужно найти все задачи которые содержат фразу которую передаете в метод поиска. Подсказка можно использовать includes https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/includes<br>
+  3.3 Опциональное задание (не обязательное). Реализуйте методы который меняет позицию таски moveUp и moveDown. Данные методы принимают задачу для которой нужно поменять позицию.<br>
+  class ToDoList {<br>
+          constructor() {<br>
+              this.todos = []<br>
+          }<br>
+          addTodo(task){<br>
+              this.todos.push(task)<br>
+          }<br>
+          removeTodo(id){<br>
+              this.todos = this.todos.filter(function(listItem){<br>
+                 return listItem.id !== id;<br>
+              })<br>
+          }<br>
+          showCompletedTasks () {<br>
+            return this.todos.filter(function(listItem){<br>
+              return listItem.status === true;<br>
+           })<br>
+          }<br>
+          showInProgressTask () {<br>
+            return this.todos.filter(function(listItem){<br>
+              return listItem.status === false;<br>
+           })<br>
+          }<br>
+        }<br>
+        <br>
+        let toDoList = new ToDoList()<br>
+        <br>
+        class Task {<br>
+            constructor(task, status, id){<br>
+                this.task = task<br>
+                this.status = status<br>
+                this.id = id<br>
+            }<br>
+        }<br>
+        let task1 = new Task('to buy milk', true, 'task1')<br>
+        let task2 = new Task('to buy bread', true, 'task2')<br>
+        let task3 = new Task('to buy salt', false, 'task3')<br>
+        let task4 = new Task('to buy sugar', false, 'task4')<br>
+        <br>
+        <br>
+        toDoList.addTodo(task1)<br>
+        toDoList.addTodo(task2)<br>
+        toDoList.addTodo(task3)<br>
+        toDoList.addTodo(task4)<br>
+        toDoList.removeTodo(task2.id)<br>
+        console.log(toDoList.todos)<br>
+        console.log(toDoList.showCompletedTasks());<br>
+        console.log(toDoList.showInProgressTask());<br>
+        <br>
+</div>
+
+  <script src="./main.js" defer></script>
+</body>
+</html>
