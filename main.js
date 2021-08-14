@@ -76,7 +76,8 @@ class ToDoList {
   console.log('toDoList.showInProgressTask = ', toDoList.showInProgressTask());
 
 // 3.1 Реализуйте метод changeStatus. Который будет менять статус задачи
-  console.log('toDoList.changeStatus = ', toDoList.changeStatus());
+toDoList.changeStatus('task4', true)));
+console.log('new toDoList.todos =', toDoList.todos);
 
 // 3.2 Реализуйте метод поиска findTasks. Нужно найти все задачи которые содержат фразу которую передаете в метод поиска.
 //       Подсказка можно использовать includes
