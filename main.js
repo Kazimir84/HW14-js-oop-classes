@@ -21,7 +21,7 @@ class ToDoList {
      });
     };
     changeStatus(id, status) {
-        return this.todos.find(function(listItem){
+        return this.todos.map(function(listItem){
             if (listItem.id === id) {                
                listItem.status = status;
             } else {                
